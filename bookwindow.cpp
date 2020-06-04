@@ -57,7 +57,7 @@
 BookWindow::BookWindow()
 {
     ui.setupUi(this);
-
+    ui.groupBox->hide();
     if (!QSqlDatabase::drivers().contains("QSQLITE"))
         QMessageBox::critical(
                     this,
@@ -73,10 +73,10 @@ BookWindow::BookWindow()
     }
 
     // Create the data model:
-    model = new QSqlRelationalTableModel(ui.bookTable);
+    model = new QSqlRelationalTableModel(ui.TableView);
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model->setTable("folders");
-
+/*
     // Remember the indexes of the columns:
     authorIdx = model->fieldIndex("author");
     genreIdx = model->fieldIndex("genre");
@@ -93,7 +93,7 @@ BookWindow::BookWindow()
     model->setHeaderData(model->fieldIndex("year"), Qt::Horizontal, tr("Year"));
     model->setHeaderData(model->fieldIndex("rating"),
                          Qt::Horizontal, tr("Rating"));
-
+*/
     // Populate the model:
     if (!model->select()) {
         showError(model->lastError());
@@ -101,11 +101,48 @@ BookWindow::BookWindow()
     }
 
     // Set the model and hide the ID column:
-    ui.bookTable->setModel(model);
-    ui.bookTable->setItemDelegate(new BookDelegate(ui.bookTable));
-    ui.bookTable->setColumnHidden(model->fieldIndex("id"), true);
-    ui.bookTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui.TableView->setModel(model);
+    ui.TableView->setItemDelegate(new BookDelegate(ui.TableView));
+    ui.TableView->setColumnHidden(model->fieldIndex("id"), true);
+    ui.TableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    //Hide Extra Columns
 
+    model->setHeaderData(1, Qt::Horizontal, tr("Folder"));
+    model->setHeaderData(3, Qt::Horizontal, tr("Enabled?"));
+    ui.TableView->setColumnHidden(model->fieldIndex("copy_to_directory"), true);
+    //ui.TableView->setColumnHidden(model->fieldIndex("folder_is_active"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("alias"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("process_backend_copy"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("process_backend_ftp"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("process_backend_email"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("ftp_server"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("ftp_folder"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("ftp_username"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("ftp_password"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("email_to"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("process_edi"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("convert_to_format"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("calculate_upc_check_digit"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("include_a_records"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("include_c_records"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("include_headers"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("filter_ampersand"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("tweak_edi"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("split_edi"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("pad_a_records"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("a_record_padding"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("ftp_port"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("email_subject_line"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("force_edi_validation"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("append_a_records"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("a_record_append_text"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("force_txt_file_ext"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("invoice_date_offset"), true);
+    ui.TableView->setColumnHidden(model->fieldIndex("id"), true);
+
+
+
+/*
     // Initialize the Author combo box:
     ui.authorEdit->setModel(model->relationModel(authorIdx));
     ui.authorEdit->setModelColumn(
@@ -116,26 +153,46 @@ BookWindow::BookWindow()
                 model->relationModel(genreIdx)->fieldIndex("name"));
 
     // Lock and prohibit resizing of the width of the rating column:
-    ui.bookTable->horizontalHeader()->setSectionResizeMode(
+    ui.TableView->horizontalHeader()->setSectionResizeMode(
                 model->fieldIndex("rating"),
                 QHeaderView::ResizeToContents);
-
+*/
     QDataWidgetMapper *mapper = new QDataWidgetMapper(this);
     mapper->setModel(model);
     mapper->setItemDelegate(new BookDelegate(this));
+    //Set up FTP edit Mappings
+    mapper->addMapping(ui.cb_ftp_backend, model->fieldIndex("process_backend_ftp"));
+    mapper->addMapping(ui.txt_ftp_port, model->fieldIndex("ftp_port"));
+    mapper->addMapping(ui.txt_ftp_password, model->fieldIndex("ftp_password"));
+    mapper->addMapping(ui.txt_ftp_username, model->fieldIndex("ftp_username"));
+    mapper->addMapping(ui.txt_ftp_folder, model->fieldIndex("ftp_folder"));
+    mapper->addMapping(ui.txt_ftp_server, model->fieldIndex("ftp_server"));
+
+    //Setup Email Edit Mappings
+    mapper->addMapping(ui.cb_email_backend, model->fieldIndex("process_backend_email"));
+    mapper->addMapping(ui.txt_email_address, model->fieldIndex("email_to"));
+    mapper->addMapping(ui.txt_email_subject, model->fieldIndex("email_subject_line"));
+
+    //Setup Copy Edit Mappings
+    mapper->addMapping(ui.cb_copy_backend, model->fieldIndex("process_backend_copy"));
+
+    //Setup folder Alias Mapping
+    mapper->addMapping(ui.txt_folder_alias, model->fieldIndex("alias"));
+
+/*
     mapper->addMapping(ui.titleEdit, model->fieldIndex("title"));
     mapper->addMapping(ui.yearEdit, model->fieldIndex("year"));
     mapper->addMapping(ui.authorEdit, authorIdx);
     mapper->addMapping(ui.genreEdit, genreIdx);
     mapper->addMapping(ui.ratingEdit, model->fieldIndex("rating"));
-
-    connect(ui.bookTable->selectionModel(),
+*/
+    connect(ui.TableView->selectionModel(),
             &QItemSelectionModel::currentRowChanged,
             mapper,
             &QDataWidgetMapper::setCurrentModelIndex
             );
 
-    ui.bookTable->setCurrentIndex(model->index(0, 0));
+    ui.TableView->setCurrentIndex(model->index(0, 0));
     createMenuBar();
 }
 

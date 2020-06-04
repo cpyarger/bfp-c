@@ -6,159 +6,1035 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>420</height>
+    <width>1112</width>
+    <height>703</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Books</string>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout">
-    <property name="spacing">
-     <number>6</number>
-    </property>
-    <property name="leftMargin">
-     <number>9</number>
-    </property>
-    <property name="topMargin">
-     <number>9</number>
-    </property>
-    <property name="rightMargin">
-     <number>9</number>
-    </property>
-    <property name="bottomMargin">
-     <number>9</number>
-    </property>
-    <item>
-     <widget class="QGroupBox" name="groupBox">
-      <property name="title">
-       <string/>
+  <property name="windowTitle">
+   <string>main</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Folders</string>
       </property>
-      <layout class="QVBoxLayout">
-       <property name="spacing">
-        <number>6</number>
-       </property>
-       <property name="leftMargin">
-        <number>9</number>
-       </property>
-       <property name="topMargin">
-        <number>9</number>
-       </property>
-       <property name="rightMargin">
-        <number>9</number>
-       </property>
-       <property name="bottomMargin">
-        <number>9</number>
-       </property>
-       <item>
-        <widget class="QTableView" name="bookTable">
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_actions">
+      <property name="text">
+       <string>Actions</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QSplitter" name="splitter">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QPushButton" name="btn_add_directory">
+         <property name="text">
+          <string>Add Directory</string>
          </property>
         </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_2">
-         <property name="title">
-          <string>Details</string>
+        <widget class="QPushButton" name="btn_batch_add_directories">
+         <property name="text">
+          <string>Batch Add Directories</string>
          </property>
-         <layout class="QFormLayout">
-          <item row="0" column="0">
+        </widget>
+        <widget class="QPushButton" name="btn_set_defaults">
+         <property name="text">
+          <string>Set Defaults</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_edit_settings">
+         <property name="text">
+          <string>Edit Settings</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_maintaince">
+         <property name="text">
+          <string>Maintaince</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_processed_file_report">
+         <property name="text">
+          <string>Processed files report</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QSplitter" name="splitter_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QPushButton" name="btn_enable_resend">
+         <property name="text">
+          <string>Enable Resend</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_process_all_folders">
+         <property name="text">
+          <string>Process All Folders</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTableView" name="TableView">
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QSplitter" name="splitter_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_act_activate">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Activate</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_act_edit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Edit</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_act_send">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Send</string>
+       </property>
+      </widget>
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="line_filter"/>
+    </item>
+    <item row="2" column="2">
+     <widget class="QPushButton" name="btn_update_filter">
+      <property name="text">
+       <string>Update Filter</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title">
+       <string>Edit - FolderAlias</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="SettingsLayout">
+         <item row="1" column="0">
+          <widget class="QSplitter" name="splitter_5">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <widget class="QCheckBox" name="cb_copy_backend">
+            <property name="text">
+             <string>Copy Backend</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cb_ftp_backend">
+            <property name="text">
+             <string>FTP Backend</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="cb_email_backend">
+            <property name="text">
+             <string>Email Backend</string>
+            </property>
+           </widget>
+           <widget class="QSplitter" name="splitter_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLineEdit" name="txt_folder_alias"/>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Folder Alias</string>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>Show Folder Path</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QSplitter" name="splitter_6">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <widget class="QLabel" name="label_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Copy Settings</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="btn_c_set_sel_dest_folder">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Select Destination Folder</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QSplitter" name="ftp_settings_splitter">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>&lt;b&gt;Title:&lt;/b&gt;</string>
+             <string>FTP Settings</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="titleEdit">
-            <property name="enabled">
-             <bool>true</bool>
+           <widget class="QSplitter" name="splitter_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>FTP Server</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="txt_ftp_server">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
            </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
+           <widget class="QSplitter" name="splitter_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>FTP Port</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="txt_ftp_port">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QSplitter" name="splitter_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_10">
+             <property name="text">
+              <string>FTP Folder</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="txt_ftp_folder">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QSplitter" name="splitter_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>FTP Username</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="txt_ftp_username">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QSplitter" name="splitter_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>FTP Password</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="txt_ftp_password">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QSplitter" name="split_email_settings">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <widget class="QLabel" name="label_6">
             <property name="text">
-             <string>&lt;b&gt;Author: &lt;/b&gt;</string>
+             <string>Email Settings</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QComboBox" name="authorEdit">
-            <property name="enabled">
-             <bool>true</bool>
+           <widget class="QSplitter" name="splitter_12">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Email Address</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="txt_email_address">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
            </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QSplitter" name="splitter_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>Email Subject</string>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="txt_email_subject">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </widget>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QSplitter" name="split_edi_settings">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>&lt;b&gt;Genre:&lt;/b&gt;</string>
+             <string>EDI Convert Settings</string>
             </property>
            </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QComboBox" name="genreEdit">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_4">
+           <widget class="QCheckBox" name="checkBox_4">
             <property name="text">
-             <string>&lt;b&gt;Year:&lt;/b&gt;</string>
+             <string>Force EDI Validation</string>
             </property>
            </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QSpinBox" name="yearEdit">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="prefix">
-             <string/>
-            </property>
-            <property name="minimum">
-             <number>-1000</number>
-            </property>
-            <property name="maximum">
-             <number>2100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label">
+           <widget class="QCheckBox" name="checkBox_5">
             <property name="text">
-             <string>&lt;b&gt;Rating:&lt;/b&gt;</string>
+             <string>Split EDI</string>
             </property>
            </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QSpinBox" name="ratingEdit">
-            <property name="maximum">
-             <number>5</number>
+           <widget class="QComboBox" name="cb_edi_action">
+            <item>
+             <property name="text">
+              <string>Do Nothing</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Convert EDI</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Tweak EDI</string>
+             </property>
+            </item>
+           </widget>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Backends</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QSplitter" name="splitter_16">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <widget class="QPushButton" name="btn_edit_cancel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Cancel</string>
             </property>
            </widget>
-          </item>
-         </layout>
-        </widget>
+           <widget class="QPushButton" name="btn_edit_ok">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>OK</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QStackedWidget" name="sw_edi_action">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="DoNothing"/>
+           <widget class="QWidget" name="ConvertEDI">
+            <layout class="QFormLayout" name="formLayout_4">
+             <item row="1" column="0">
+              <widget class="QStackedWidget" name="sw_convert">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>2</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <widget class="QWidget" name="CSV">
+                <layout class="QFormLayout" name="formLayout_3">
+                 <item row="0" column="0">
+                  <widget class="QSplitter" name="splitter_25">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <widget class="QCheckBox" name="checkBox">
+                    <property name="text">
+                     <string>Calculate UPC Check Digit</string>
+                    </property>
+                   </widget>
+                   <widget class="QCheckBox" name="checkBox_3">
+                    <property name="text">
+                     <string>Include A Records</string>
+                    </property>
+                   </widget>
+                   <widget class="QSplitter" name="split_pad_a_records">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <widget class="QCheckBox" name="cb_pad_a_records">
+                     <property name="text">
+                      <string>Pad A Records</string>
+                     </property>
+                    </widget>
+                    <widget class="QLineEdit" name="txt_pad_a_records"/>
+                   </widget>
+                   <widget class="QSplitter" name="split_append_a_records">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <widget class="QCheckBox" name="cb_append_a_records">
+                     <property name="text">
+                      <string>Append to A Records</string>
+                     </property>
+                    </widget>
+                    <widget class="QLineEdit" name="txt_append_a_records"/>
+                   </widget>
+                   <widget class="QCheckBox" name="checkBox_6">
+                    <property name="text">
+                     <string>Include C Records</string>
+                    </property>
+                   </widget>
+                   <widget class="QCheckBox" name="checkBox_12">
+                    <property name="text">
+                     <string>Include Headings</string>
+                    </property>
+                   </widget>
+                   <widget class="QCheckBox" name="checkBox_13">
+                    <property name="text">
+                     <string>Filter Amperstand</string>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="ScannerWare_2">
+                <layout class="QFormLayout" name="formLayout_2">
+                 <item row="1" column="0">
+                  <widget class="QSplitter" name="split_append_a_records_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QCheckBox" name="cb_append_a_records_2">
+                    <property name="text">
+                     <string>Append to A Records</string>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="txt_append_a_records_2"/>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QSplitter" name="splitter_14">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QCheckBox" name="cb_pad_a_records_2">
+                    <property name="text">
+                     <string>Pad A Records</string>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="txt_pad_a_records_2"/>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="ScanSheetTypeA">
+                <layout class="QFormLayout" name="formLayout">
+                 <item row="0" column="0">
+                  <widget class="QSplitter" name="split_append_a_records_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <widget class="QCheckBox" name="cb_append_a_records_3">
+                    <property name="text">
+                     <string>Append to A Records</string>
+                    </property>
+                   </widget>
+                   <widget class="QLineEdit" name="txt_append_a_records_3"/>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="convertToLabel">
+               <property name="text">
+                <string>Convert To</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="convertToComboBox">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <item>
+                <property name="text">
+                 <string>CSV</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Scanner Ware</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Scan Sheet Type A</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="TweakEDI">
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0">
+              <widget class="QSplitter" name="splitter_23">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <widget class="QCheckBox" name="checkBox_7">
+                <property name="text">
+                 <string>Calculate UPC Check Digit</string>
+                </property>
+               </widget>
+               <widget class="QSplitter" name="splitter_20">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <widget class="QCheckBox" name="checkBox_8">
+                 <property name="text">
+                  <string>Pad &quot;A&quot; Records</string>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="lineEdit"/>
+               </widget>
+               <widget class="QSplitter" name="splitter_21">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <widget class="QCheckBox" name="checkBox_11">
+                 <property name="text">
+                  <string>Append &quot;A&quot; Records (series 2k)</string>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="lineEdit_3"/>
+               </widget>
+               <widget class="QCheckBox" name="checkBox_10">
+                <property name="text">
+                 <string>Force .txt file extention</string>
+                </property>
+               </widget>
+               <widget class="QSplitter" name="splitter_22">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <widget class="QLabel" name="label_16">
+                 <property name="text">
+                  <string>invoice offset days</string>
+                 </property>
+                </widget>
+                <widget class="QSpinBox" name="spinBox"/>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1112</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
  </widget>
- <tabstops>
-  <tabstop>bookTable</tabstop>
-  <tabstop>titleEdit</tabstop>
-  <tabstop>authorEdit</tabstop>
-  <tabstop>genreEdit</tabstop>
-  <tabstop>yearEdit</tabstop>
- </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionQuit</sender>
+   <signal>triggered()</signal>
+   <receiver>BookWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_act_edit</sender>
+   <signal>clicked()</signal>
+   <receiver>groupBox</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>831</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>470</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_edit_ok</sender>
+   <signal>clicked()</signal>
+   <receiver>groupBox</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>588</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>326</x>
+     <y>470</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_edit_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>groupBox</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>514</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>326</x>
+     <y>470</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_copy_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btn_c_set_sel_dest_folder</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>363</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>335</x>
+     <y>438</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_ftp_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txt_ftp_folder</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_ftp_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txt_ftp_password</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>612</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_ftp_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txt_ftp_port</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>534</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_ftp_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txt_ftp_server</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>366</x>
+     <y>508</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_ftp_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txt_ftp_username</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>586</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_email_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txt_email_address</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>411</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>406</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_email_backend</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txt_email_subject</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>411</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>452</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_edi_action</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>sw_edi_action</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>561</x>
+     <y>508</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>561</x>
+     <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>convertToComboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>sw_convert</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>879</x>
+     <y>549</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>637</x>
+     <y>608</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
